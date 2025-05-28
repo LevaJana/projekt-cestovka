@@ -1,0 +1,256 @@
+html { box-sizing: border-box; }
+*, :after, :before { box-sizing: inherit; }
+
+$f-basic: 'Open Sans', sans-serif;
+$f-extra: 'Montserrat', sans-serif;
+$c-main: #F03000;
+$c-lightgrey: #F0F0F0;
+$c-mediumgrey: #888888;
+$c-darkgrey: #444444;
+
+body {
+    font-size: 16px;
+    font-family: $f-basic;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    font-family: $f-extra;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    &__logo {
+        margin: 15px auto 30px auto;
+        display: block;
+
+        @media screen and (min-width: 768px) {
+            margin: 0 0 0 20px;
+        }
+    }
+
+    &__menu {
+        margin-bottom: 30px;
+        display: flex;
+
+        @media screen and (min-width: 768px) {
+            margin: 0;
+        }
+    }
+
+    &__link {
+        color: $c-main;
+        text-decoration: none;
+        display: inline-block;
+        padding: 20px;
+        flex-grow: 1;
+
+        &:hover, &:focus {
+            background-color: $c-main;
+            color: white;
+        }
+    }
+}
+
+.section {
+    &__title {
+        font-family: $f-extra;
+        font-size: 24px;
+        margin: 40px 0 20px 0;
+    }
+}
+
+.photogrid {
+    display: grid;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 180px 180px 180px;
+    }
+
+    @media screen and (min-width: 960px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 180px 180px;
+    }
+}
+
+.photobox {
+    min-height: 150px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__price {
+        position: relative;
+        font-family: $f-extra;
+        font-size: 18px;
+        padding: 10px;
+        background-color: $c-main;
+        align-self: start;
+        margin: 20px;
+    }
+
+    &__title {
+        position: relative;
+        font-family: $f-extra;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__description {
+        margin-top: 17px;
+        margin-bottom: 0;
+    }
+
+    &__text {
+        position: relative;
+        background: linear-gradient(to bottom, transparent, #80808080);
+        padding: 20px;
+    }
+
+    &--big {
+        min-height: 240px;
+
+        @media screen and (min-width: 768px) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .photobox__title {
+            font-size: 28px;
+        }
+        
+        &right {
+            @media screen and (min-width: 960px) {
+            grid-column: 2 / span 2;
+            grid-row: 1 / span 2;
+        }
+        }
+    }
+}
+
+.infoboxes {
+    margin: 40px 0;
+    display: grid;
+    gap: 10px;
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    @media screen and (min-width: 960px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.infobox {
+    background-color: $c-lightgrey;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        display: block;
+        text-align: center;
+    }
+
+    &__image {
+        flex: 0 0 55px;
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $f-extra;
+        font-size: 18px;
+        font-weight: normal;
+        color: $c-main;
+    }
+
+    &__text {
+        margin: 10px 0 0 0;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.newsgrid {
+    display: grid;
+    gap: 20px;
+
+    @media screen and (min-width: 960px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.news {
+    background-color: $c-lightgrey;
+    padding: 20px;
+    font-family: $f-extra;
+
+    &__date {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: $c-mediumgrey;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: $c-main;
+        font-weight: normal;
+    }
+
+    &__text {
+        margin: 0;
+    }
+}
+
+.footer {
+    background-color: $c-darkgrey;
+    color: white;
+    margin: 40px 0 20px 0;
+    padding: 20px;
+    text-align: center;
+
+    &__text {
+        margin: 0;
+        font-family: $f-extra;
+    }
+}
+
+.page {
+    @media screen and (min-width: 960px) {
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+}
